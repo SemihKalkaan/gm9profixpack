@@ -1,0 +1,16 @@
+ui_print(" ");
+ui_print(" GM9 Pro GSİ Romlar için Fix paketi");
+ifelse(is_mounted("/system"), unmount("/system"));
+run_program("/sbin/busybox", "mount", "/system");
+ifelse(is_mounted("/vendor"), unmount("/vendor"));
+run_program("/sbin/busybox", "mount", "/vendor");
+package_extract_file("dalvik.sh", "/tmp/dalvik.sh");
+package_extract_dir("semihkalkan/vendor", "/vendor");
+package_extract_dir("semihkalkan/system", "/system");
+set_perm(0, 0, 0755, "/tmp/dalvik.sh");
+ui_print("Setting permissions...");
+set_perm(0, 0, 0644, "/vendor/etc/audio_policy_configuration.xml");
+run_program("/sbin/busybox", "sh", "/tmp/dalvik.sh");
+run_program("/sbin/busybox", "umount", "/system");
+run_program("/sbin/busybox", "umount", "/vendor");
+ui_print("Developer by SemihKalkan ");
