@@ -9,12 +9,12 @@ fi
 if [ "$sourcetype" == "Aonly" ]; then
 	busybox echo "
 " >> /system/build.prop;
-	busybox echo "# Internal Storage Fix by Zenlty" >> /system/build.prop;
+	busybox echo "# Internal Storage Fix by SemihKalkan" >> /system/build.prop;
 	busybox echo "ro.build.system_root_image=true" >> /system/build.prop;
 else
 	busybox echo "
 " >> /system/system/build.prop;
-	busybox echo "# Internal Storage Fix by Zenlty" >> /system/build.prop;
+	busybox echo "# Internal Storage Fix by SemihKalkan" >> /system/build.prop;
 	busybox echo "ro.build.system_root_image=true" >> /system/build.prop;
 fi
 
